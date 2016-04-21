@@ -1,13 +1,85 @@
 -----------
--- Lua bindings for [ucdn](https://github.com/grigorig/ucdn).
--- * [Source on Github](https://github.com/deepakjois/luaucdn)
+-- Lua bindings to [ucdn](https://github.com/grigorig/ucdn).
+-- * [Source on Github](https://github.com/deepakjois/luaharfbuzz)
 --
 -- @author Deepak Jois <<deepak.jois@gmail.com>>
 -- @copyright 2016
 -- @license MIT
 -- @module ucdn
 
---- Reports the version of the Unicode Character Database provided by this module.
---  @field UNICODE_VERSION
+--- Return version of the Unicode database.
+--  @function get_unicode_version
 
+--- Bidi_Class property.
+-- Enumerated constants representing [Bidi_Class values](http://www.unicode.org/reports/tr44/#Bidi_Class_Values).
+-- @section
+
+--- Left\_To_Right
+-- @field ucdn.UCDN_BIDI_CLASS_L
+
+--- Left\_To_Right\_Embedding
+-- @field ucdn.UCDN_BIDI_CLASS_LRE
+
+--- Left\_To_Right\_Override
+-- @field ucdn.UCDN_BIDI_CLASS_LRO
+
+--- Right\_To_Left
+-- @field ucdn.UCDN_BIDI_CLASS_R
+
+--- Arabic_Letter
+-- @field ucdn.UCDN_BIDI_CLASS_AL
+
+--- Right\_To_Left\_Embedding
+-- @field ucdn.UCDN_BIDI_CLASS_RLE
+
+--- Right\_To_Left\_Override
+-- @field ucdn.UCDN_BIDI_CLASS_RLO
+
+--- Pop\_Directional_Format
+-- @field ucdn.UCDN_BIDI_CLASS_PDF
+
+--- European_Number
+-- @field ucdn.UCDN_BIDI_CLASS_EN
+
+--- European_Separator
+-- @field ucdn.UCDN_BIDI_CLASS_ES
+
+--- European_Terminator
+-- @field ucdn.UCDN_BIDI_CLASS_ET
+
+--- Arabic_Number
+-- @field ucdn.UCDN_BIDI_CLASS_AN
+
+--- Common_Separator
+-- @field ucdn.UCDN_BIDI_CLASS_CS
+
+--- Nonspacing_Mark
+-- @field ucdn.UCDN_BIDI_CLASS_NSM
+
+--- Boundary_Neutral
+-- @field ucdn.UCDN_BIDI_CLASS_BN
+
+--- Paragraph_Separator
+-- @field ucdn.UCDN_BIDI_CLASS_B
+
+--- Segment_Separator
+-- @field ucdn.UCDN_BIDI_CLASS_S
+
+--- White_Space
+-- @field ucdn.UCDN_BIDI_CLASS_WS
+
+--- Other_Neutral
+-- @field ucdn.UCDN_BIDI_CLASS_ON
+
+--- Left\_To_Right\_Isolate
+-- @field ucdn.UCDN_BIDI_CLASS_LRI
+
+--- Right\_To_Left\_Isolate
+-- @field ucdn.UCDN_BIDI_CLASS_RLI
+
+--- First\_Strong_Isolate
+-- @field ucdn.UCDN_BIDI_CLASS_FSI
+
+--- Pop\_Directional_Isolate
+-- @field ucdn.UCDN_BIDI_CLASS_PDI
 
