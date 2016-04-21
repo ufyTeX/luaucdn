@@ -1,6 +1,6 @@
 -----------
 -- Lua bindings to [ucdn](https://github.com/grigorig/ucdn).
--- * [Source on Github](https://github.com/deepakjois/luaharfbuzz)
+-- * [Source on Github](https://github.com/deepakjois/luaucdn)
 --
 -- @author Deepak Jois <<deepak.jois@gmail.com>>
 -- @copyright 2016
