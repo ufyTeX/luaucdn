@@ -1,6 +1,6 @@
 local lu = require("luaucdn")
 
--- BiDi Classes
+-- Bidi_Class values
 lu.UCDN_BIDI_CLASS_L = 0
 lu.UCDN_BIDI_CLASS_LRE = 1
 lu.UCDN_BIDI_CLASS_LRO = 2
