@@ -1,0 +1,13 @@
+-----------
+-- Lua bindings for [ucdn](https://github.com/grigorig/ucdn).
+-- * [Source on Github](https://github.com/deepakjois/luaharfbuzz)
+--
+-- @author Deepak Jois <<deepak.jois@gmail.com>>
+-- @copyright 2016
+-- @license MIT
+-- @module ucdn
+
+--- Reports the version of the Unicode Character Database provided by this module.
+--  @field UNICODE_VERSION
+
+
