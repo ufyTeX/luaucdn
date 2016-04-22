@@ -8,11 +8,6 @@ else
     LIBFLAGS = -shared
 endif
 
-# For compatibility with Luarocks
-INST_PREFIX = /usr/local
-INST_LIBDIR = $(INST_PREFIX)/lib/lua/5.2
-INST_LUADIR = $(INST_PREFIX)/share/lua/5.2
-
 DOCS_DIR := api
 BUILD_DIR := build
 C_SRC_ROOT := src/luaucdn
@@ -44,9 +39,4 @@ lint:
 doc:
 	ldoc -d ${DOCS_DIR}  .
 
-# For use with Luarocks
-install: luaucdn.so src/ucdn.lua
-	cp luaucdn.so $(INST_LIBDIR)
-	cp src/ucdn.lua $(INST_LUADIR)
-
-.PHONY: all clean test dirs install lint spec doc
+.PHONY: all clean test dirs lint spec doc

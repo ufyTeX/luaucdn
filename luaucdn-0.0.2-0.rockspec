@@ -1,8 +1,8 @@
 package = "luaucdn"
-version = "0.0.1-0"
+version = "0.0.2-0"
 source = {
   url = "git://github.com/deepakjois/luaucdn",
-  tag = "v0.0.1"
+  tag = "v0.0.2"
 }
 description = {
   summary = "Lua bindings for ucdn",
@@ -14,9 +14,9 @@ dependencies = {
   "lua ~> 5.2"
 }
 build = {
-  type = "make",
-  install_variables = {
-    INST_LIBDIR="$(LIBDIR)",
-    INST_LUADIR="$(LUADIR)",
+  type = "builtin",
+  modules = {
+    ucdn = "src/ucdn.lua",
+    luaucdn = {"src/luaucdn/ucdn.c", "src/luaucdn/luaucdn.c"}
   }
 }
