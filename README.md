@@ -11,9 +11,11 @@ luarocks install luaucdn
 
 * [API Docs](http://deepakjois.github.io/luaucdn/api/)
 
-## Coverage
+## API Coverage
 
-luaucdn does not implement all the API methods from ucdn yet. If you require a specific method to be implemented, please [open a github issue][luaucdn-issues]
+luaucdn does not implement [all the API methods][ucdn-api] from ucdn yet. [Open a github issue][luaucdn-issues] to request any unimplemented API methods that you require.
+
+[ucdn-api]:https://github.com/deepakjois/luaucdn/blob/master/src/luaucdn/ucdn.h
 
 ## Development
 
