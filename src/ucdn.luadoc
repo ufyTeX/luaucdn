@@ -16,6 +16,16 @@
 --  @return value according to ucdn.UCDN_BIDI_CLASS_* and as defined in UAX#44.
 --  @function get_bidi_class
 
+--- Get paired bracket for a codepoint.
+--  @param code Unicode codepoint
+--  @return paired bracket codepoint or the original codepoint if no paired bracket character exists
+--  @function paired_bracket
+
+--- Get paired bracket type for a codepoint.
+--  @param code Unicode codepoint
+--  @return value according to ucdn.UCDN_BIDI_PAIRED_BRACKET_TYPE_* and as defined in UAX#9.
+--  @function paired_bracket_type
+
 --- Bidi_Class property.
 -- Enumerated constants representing [Bidi_Class values](http://www.unicode.org/reports/tr44/#Bidi_Class_Values).
 -- @section
@@ -89,3 +99,15 @@
 --- Pop\_Directional_Isolate
 -- @field ucdn.UCDN_BIDI_CLASS_PDI
 
+--- Bidi_Paired_Bracket_Type property.
+-- Enumerated constants representing [Bidi\_Paired_Bracket\_Type values](http://www.unicode.org/Public/UCD/latest/ucd/BidiBrackets.txt).
+-- @section
+
+--- Open
+-- @field ucdn.UCDN_BIDI_PAIRED_BRACKET_TYPE_OPEN
+
+--- Close
+-- @field ucdn.UCDN_BIDI_PAIRED_BRACKET_TYPE_CLOSE
+
+--- None
+-- @field ucdn.UCDN_BIDI_PAIRED_BRACKET_TYPE_NONE
