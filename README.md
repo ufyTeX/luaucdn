@@ -20,7 +20,13 @@ luaucdn does not implement [all the API methods][ucdn-api] from ucdn yet. [Open 
 ## Development
 
 #### Building
-It is possible to build luaucdn using the Makefile provided in the distribution. Running `make` will build the library `luaucdn.so` in the root directory of the repo. The Lua source files are located under the `src` directory. To use them with Lua, you will need to update your `package.path` and `package.cpath` approrpriately.
+It is possible to build luaucdn using the Makefile provided in the distribution. Running `make` will build the library `luaucdn.so` in the root directory of the repo. The Lua source files are located under the `src` directory. To use them with Lua, you will need to update your `package.path` and `package.cpath` appropriately.
+
+You can also use LuaRocks to build
+
+```
+luarocks make --pack-binary-rock
+```
 
 #### Testing and Linting
 In order to make changes to the code and run the tests, the following dependencies need to be installed:
