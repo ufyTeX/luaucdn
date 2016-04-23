@@ -1,5 +1,5 @@
 # luaucdn
-Lua bindings for [ucdn](https://github.com/grigorig/ucdn).
+Lua bindings for [ucdn](https://github.com/grigorig/ucdn), which is a Unicode support library written in C.
 
 ## Installing
 
