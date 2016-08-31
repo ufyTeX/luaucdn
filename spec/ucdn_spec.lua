@@ -2,8 +2,8 @@ local ucdn = require("ucdn")
 
 describe("ucdn module", function()
 
-  it("contains v8.0.0 of the Unicode Character Database", function()
-    assert.are_equal("8.0.0", ucdn.get_unicode_version())
+  it("contains v9.0.0 of the Unicode Character Database", function()
+    assert.are_equal("9.0.0", ucdn.get_unicode_version())
   end)
 
   it("returns the Bidi_Class propety value for a given codepoint", function()
