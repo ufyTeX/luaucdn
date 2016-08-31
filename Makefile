@@ -8,7 +8,7 @@ else
     LIBFLAGS = -shared
 endif
 
-DOCS_DIR := api
+DOCS_DIR := docs
 BUILD_DIR := build
 C_SRC_ROOT := src/luaucdn
 SOURCES := ucdn.c luaucdn.c

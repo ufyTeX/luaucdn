@@ -1,0 +1,683 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>luaucdn Documentation</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>luaucdn</h1>
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Bidi_Class_property">Bidi_Class property</a></li>
+<li><a href="#Bidi_Paired_Bracket_Type_property">Bidi_Paired_Bracket_Type property</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>ucdn</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>ucdn</code></h1>
+<p>Lua bindings to <a href="https://github.com/grigorig/ucdn">ucdn</a>.</p>
+<p>
+
+<ul>
+    <li><a href="https://github.com/deepakjois/luaucdn">Source on Github</a></li>
+</ul>
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: 2016</li>
+        <li><strong>License</strong>: MIT</li>
+        <li><strong>Author</strong>: Deepak Jois <<a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#x3a;d&#101;&#x65;&#112;&#x61;&#107;&#x2e;&#106;&#x6f;i&#115;&#x40;&#103;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;m">&#x64;&#101;&#x65;&#112;&#x61;&#107;&#x2e;j&#111;&#x69;&#115;&#x40;&#103;&#x6d;&#97;&#x69;l&#46;&#x63;&#111;&#x6d;</a>></li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#get_unicode_version">get_unicode_version ()</a></td>
+	<td class="summary">Return version of the Unicode database.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_bidi_class">get_bidi_class (code)</a></td>
+	<td class="summary">Get bidirectional class of a codepoint.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#paired_bracket">paired_bracket (code)</a></td>
+	<td class="summary">Get paired bracket for a codepoint.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#paired_bracket_type">paired_bracket_type (code)</a></td>
+	<td class="summary">Get paired bracket type for a codepoint.</td>
+	</tr>
+</table>
+<h2><a href="#Bidi_Class_property">Bidi_Class property</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_L">UCDN_BIDI_CLASS_L</a></td>
+	<td class="summary">Left_To_Right</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_LRE">UCDN_BIDI_CLASS_LRE</a></td>
+	<td class="summary">Left_To_Right_Embedding</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_LRO">UCDN_BIDI_CLASS_LRO</a></td>
+	<td class="summary">Left_To_Right_Override</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_R">UCDN_BIDI_CLASS_R</a></td>
+	<td class="summary">Right_To_Left</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_AL">UCDN_BIDI_CLASS_AL</a></td>
+	<td class="summary">Arabic_Letter</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_RLE">UCDN_BIDI_CLASS_RLE</a></td>
+	<td class="summary">Right_To_Left_Embedding</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_RLO">UCDN_BIDI_CLASS_RLO</a></td>
+	<td class="summary">Right_To_Left_Override</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_PDF">UCDN_BIDI_CLASS_PDF</a></td>
+	<td class="summary">Pop_Directional_Format</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_EN">UCDN_BIDI_CLASS_EN</a></td>
+	<td class="summary">European_Number</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_ES">UCDN_BIDI_CLASS_ES</a></td>
+	<td class="summary">European_Separator</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_ET">UCDN_BIDI_CLASS_ET</a></td>
+	<td class="summary">European_Terminator</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_AN">UCDN_BIDI_CLASS_AN</a></td>
+	<td class="summary">Arabic_Number</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_CS">UCDN_BIDI_CLASS_CS</a></td>
+	<td class="summary">Common_Separator</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_NSM">UCDN_BIDI_CLASS_NSM</a></td>
+	<td class="summary">Nonspacing_Mark</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_BN">UCDN_BIDI_CLASS_BN</a></td>
+	<td class="summary">Boundary_Neutral</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_B">UCDN_BIDI_CLASS_B</a></td>
+	<td class="summary">Paragraph_Separator</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_S">UCDN_BIDI_CLASS_S</a></td>
+	<td class="summary">Segment_Separator</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_WS">UCDN_BIDI_CLASS_WS</a></td>
+	<td class="summary">White_Space</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_ON">UCDN_BIDI_CLASS_ON</a></td>
+	<td class="summary">Other_Neutral</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_LRI">UCDN_BIDI_CLASS_LRI</a></td>
+	<td class="summary">Left_To_Right_Isolate</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_RLI">UCDN_BIDI_CLASS_RLI</a></td>
+	<td class="summary">Right_To_Left_Isolate</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_FSI">UCDN_BIDI_CLASS_FSI</a></td>
+	<td class="summary">First_Strong_Isolate</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_CLASS_PDI">UCDN_BIDI_CLASS_PDI</a></td>
+	<td class="summary">Pop_Directional_Isolate</td>
+	</tr>
+</table>
+<h2><a href="#Bidi_Paired_Bracket_Type_property">Bidi_Paired_Bracket_Type property</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_PAIRED_BRACKET_TYPE_OPEN">UCDN_BIDI_PAIRED_BRACKET_TYPE_OPEN</a></td>
+	<td class="summary">Open</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_PAIRED_BRACKET_TYPE_CLOSE">UCDN_BIDI_PAIRED_BRACKET_TYPE_CLOSE</a></td>
+	<td class="summary">Close</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UCDN_BIDI_PAIRED_BRACKET_TYPE_NONE">UCDN_BIDI_PAIRED_BRACKET_TYPE_NONE</a></td>
+	<td class="summary">None</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "get_unicode_version"></a>
+    <strong>get_unicode_version ()</strong>
+    </dt>
+    <dd>
+    Return version of the Unicode database.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        version string, e.g. <code>8.0.0</code>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_bidi_class"></a>
+    <strong>get_bidi_class (code)</strong>
+    </dt>
+    <dd>
+    Get bidirectional class of a codepoint.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">code</span>
+         Unicode codepoint
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        value according to ucdn.UCDN<em>BIDI</em>CLASS_* and as defined in UAX#44.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "paired_bracket"></a>
+    <strong>paired_bracket (code)</strong>
+    </dt>
+    <dd>
+    Get paired bracket for a codepoint.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">code</span>
+         Unicode codepoint
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        paired bracket codepoint or the original codepoint if no paired bracket character exists
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "paired_bracket_type"></a>
+    <strong>paired_bracket_type (code)</strong>
+    </dt>
+    <dd>
+    Get paired bracket type for a codepoint.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">code</span>
+         Unicode codepoint
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        value according to ucdn.UCDN<em>BIDI</em>PAIRED<em>BRACKET</em>TYPE_* and as defined in UAX#9.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header has-description"><a name="Bidi_Class_property"></a>Bidi_Class property</h2>
+
+          <div class="section-description">
+           Enumerated constants representing <a href="http://www.unicode.org/reports/tr44/#Bidi_Class_Values">Bidi_Class values</a>.
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_L"></a>
+    <strong>UCDN_BIDI_CLASS_L</strong>
+    </dt>
+    <dd>
+    Left_To_Right
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_LRE"></a>
+    <strong>UCDN_BIDI_CLASS_LRE</strong>
+    </dt>
+    <dd>
+    Left_To_Right_Embedding
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_LRO"></a>
+    <strong>UCDN_BIDI_CLASS_LRO</strong>
+    </dt>
+    <dd>
+    Left_To_Right_Override
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_R"></a>
+    <strong>UCDN_BIDI_CLASS_R</strong>
+    </dt>
+    <dd>
+    Right_To_Left
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_AL"></a>
+    <strong>UCDN_BIDI_CLASS_AL</strong>
+    </dt>
+    <dd>
+    Arabic_Letter
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_RLE"></a>
+    <strong>UCDN_BIDI_CLASS_RLE</strong>
+    </dt>
+    <dd>
+    Right_To_Left_Embedding
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_RLO"></a>
+    <strong>UCDN_BIDI_CLASS_RLO</strong>
+    </dt>
+    <dd>
+    Right_To_Left_Override
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_PDF"></a>
+    <strong>UCDN_BIDI_CLASS_PDF</strong>
+    </dt>
+    <dd>
+    Pop_Directional_Format
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_EN"></a>
+    <strong>UCDN_BIDI_CLASS_EN</strong>
+    </dt>
+    <dd>
+    European_Number
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_ES"></a>
+    <strong>UCDN_BIDI_CLASS_ES</strong>
+    </dt>
+    <dd>
+    European_Separator
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_ET"></a>
+    <strong>UCDN_BIDI_CLASS_ET</strong>
+    </dt>
+    <dd>
+    European_Terminator
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_AN"></a>
+    <strong>UCDN_BIDI_CLASS_AN</strong>
+    </dt>
+    <dd>
+    Arabic_Number
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_CS"></a>
+    <strong>UCDN_BIDI_CLASS_CS</strong>
+    </dt>
+    <dd>
+    Common_Separator
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_NSM"></a>
+    <strong>UCDN_BIDI_CLASS_NSM</strong>
+    </dt>
+    <dd>
+    Nonspacing_Mark
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_BN"></a>
+    <strong>UCDN_BIDI_CLASS_BN</strong>
+    </dt>
+    <dd>
+    Boundary_Neutral
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_B"></a>
+    <strong>UCDN_BIDI_CLASS_B</strong>
+    </dt>
+    <dd>
+    Paragraph_Separator
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_S"></a>
+    <strong>UCDN_BIDI_CLASS_S</strong>
+    </dt>
+    <dd>
+    Segment_Separator
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_WS"></a>
+    <strong>UCDN_BIDI_CLASS_WS</strong>
+    </dt>
+    <dd>
+    White_Space
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_ON"></a>
+    <strong>UCDN_BIDI_CLASS_ON</strong>
+    </dt>
+    <dd>
+    Other_Neutral
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_LRI"></a>
+    <strong>UCDN_BIDI_CLASS_LRI</strong>
+    </dt>
+    <dd>
+    Left_To_Right_Isolate
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_RLI"></a>
+    <strong>UCDN_BIDI_CLASS_RLI</strong>
+    </dt>
+    <dd>
+    Right_To_Left_Isolate
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_FSI"></a>
+    <strong>UCDN_BIDI_CLASS_FSI</strong>
+    </dt>
+    <dd>
+    First_Strong_Isolate
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_CLASS_PDI"></a>
+    <strong>UCDN_BIDI_CLASS_PDI</strong>
+    </dt>
+    <dd>
+    Pop_Directional_Isolate
+
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header has-description"><a name="Bidi_Paired_Bracket_Type_property"></a>Bidi_Paired_Bracket_Type property</h2>
+
+          <div class="section-description">
+           Enumerated constants representing <a href="http://www.unicode.org/Public/UCD/latest/ucd/BidiBrackets.txt">Bidi_Paired_Bracket_Type values</a>.
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "UCDN_BIDI_PAIRED_BRACKET_TYPE_OPEN"></a>
+    <strong>UCDN_BIDI_PAIRED_BRACKET_TYPE_OPEN</strong>
+    </dt>
+    <dd>
+    Open
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_PAIRED_BRACKET_TYPE_CLOSE"></a>
+    <strong>UCDN_BIDI_PAIRED_BRACKET_TYPE_CLOSE</strong>
+    </dt>
+    <dd>
+    Close
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "UCDN_BIDI_PAIRED_BRACKET_TYPE_NONE"></a>
+    <strong>UCDN_BIDI_PAIRED_BRACKET_TYPE_NONE</strong>
+    </dt>
+    <dd>
+    None
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.5</a></i>
+<i style="float:right;">Last updated 2016-08-31 22:17:56 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
