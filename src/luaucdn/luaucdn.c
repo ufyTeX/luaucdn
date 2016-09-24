@@ -29,11 +29,28 @@ int paired_bracket(lua_State *L) {
   return 1;
 }
 
+int compat_decompose(lua_State *L) {
+  uint32_t c = lua_tounsigned(L, 1);
+
+  uint32_t decomposed[18];
+  unsigned int len = ucdn_compat_decompose(c, decomposed);
+
+  lua_newtable(L);
+  for (unsigned int i = 0; i < len; i++) {
+    lua_pushinteger(L, i+1);
+    lua_pushinteger(L, decomposed[i]);
+    lua_settable(L,-3);
+  }
+
+  return 1;
+}
+
 static const struct luaL_Reg lib_table [] = {
   {"get_unicode_version", get_unicode_version},
   {"get_bidi_class", get_bidi_class},
   {"paired_bracket_type", paired_bracket_type},
   {"paired_bracket", paired_bracket},
+  {"compat_decompose", compat_decompose},
   {NULL, NULL}
 };
 

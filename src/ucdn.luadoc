@@ -26,6 +26,11 @@
 --  @return value according to ucdn.UCDN\_BIDI\_PAIRED\_BRACKET\_TYPE\_* and as defined in UAX#9.
 --  @function paired_bracket_type
 
+--- Get compatibility decomposition for a codepoint.
+--  @param code Unicode codepoint
+--  @return table containing the decomposed codepoints.
+--  @function compat_decompose
+
 --- Bidi_Class property.
 -- Enumerated constants representing [Bidi_Class values](http://www.unicode.org/reports/tr44/#Bidi_Class_Values).
 -- @section
