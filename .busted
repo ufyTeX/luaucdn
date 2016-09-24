@@ -2,6 +2,8 @@ return {
   default = {
     coverage = true,
     verbose = true,
+    path="./src/?.lua;./src/?/?.lua;./src/?/init.lua;./ucd/?.lua",
+    cpath="./?.so",
     ROOT = { "spec" }
   }
 }
