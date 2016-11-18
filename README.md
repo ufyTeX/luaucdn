@@ -25,7 +25,7 @@ It is possible to build luaucdn using the Makefile provided in the distribution.
 You can also use LuaRocks to build
 
 ```
-luarocks make --pack-binary-rock
+luarocks make
 ```
 
 #### Testing and Linting
