@@ -1,8 +1,8 @@
 package = "luaucdn"
-version = "0.0.4-0"
+version = "0.0.5-0"
 source = {
   url = "git://github.com/deepakjois/luaucdn",
-  tag = "v0.0.4"
+  tag = "v0.0.5"
 }
 description = {
   summary = "Lua bindings for ucdn",
@@ -11,7 +11,7 @@ description = {
   maintainer = "Deepak Jois <deepak.jois@gmail.com>"
 }
 dependencies = {
-  "lua ~> 5.2"
+  "lua >= 5.2"
 }
 build = {
   type = "builtin",
