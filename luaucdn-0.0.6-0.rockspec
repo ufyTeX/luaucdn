@@ -1,8 +1,8 @@
 package = "luaucdn"
-version = "0.0.5-0"
+version = "0.0.6-0"
 source = {
   url = "git://github.com/deepakjois/luaucdn",
-  tag = "v0.0.5"
+  tag = "v0.0.6"
 }
 description = {
   summary = "Lua bindings for ucdn",
