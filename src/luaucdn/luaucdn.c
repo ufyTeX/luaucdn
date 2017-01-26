@@ -36,7 +36,8 @@ int compat_decompose(lua_State *L) {
   unsigned int len = ucdn_compat_decompose(c, decomposed);
 
   lua_newtable(L);
-  for (unsigned int i = 0; i < len; i++) {
+  unsigned int i;
+  for (i = 0; i < len; i++) {
     lua_pushinteger(L, i+1);
     lua_pushinteger(L, decomposed[i]);
     lua_settable(L,-3);
