@@ -43,7 +43,7 @@ typedef struct {
     short count, index;
 } Reindex;
 
-#include "unicodedata_db.h"
+#include "ucdn_db.h"
 
 /* constants required for Hangul (de)composition */
 #define SBASE 0xAC00
@@ -127,8 +127,8 @@ static BracketPair *search_bp(uint32_t code)
     BracketPair *res;
 
     bp.from = code;
-    res = bsearch(&bp, bracket_pairs, BIDI_BRACKET_LEN, sizeof(BracketPair),
-            compare_bp);
+    res = (BracketPair *) bsearch(&bp, bracket_pairs, BIDI_BRACKET_LEN,
+                                 sizeof(BracketPair), compare_bp);
     return res;
 }
 
@@ -154,23 +154,18 @@ static int hangul_pair_decompose(uint32_t code, uint32_t *a, uint32_t *b)
 
 static int hangul_pair_compose(uint32_t *code, uint32_t a, uint32_t b)
 {
-    if (b < VBASE || b >= (TBASE + TCOUNT))
-        return 0;
-
-    if ((a < LBASE || a >= (LBASE + LCOUNT))
-            && (a < SBASE || a >= (SBASE + SCOUNT)))
-        return 0;
-
-    if (a >= SBASE) {
+    if (a >= SBASE && a < (SBASE + SCOUNT) && b >= TBASE && b < (TBASE + TCOUNT)) {
         /* LV,T */
         *code = a + (b - TBASE);
         return 3;
-    } else {
+    } else if (a >= LBASE && a < (LBASE + LCOUNT) && b >= VBASE && b < (VBASE + VCOUNT)) {
         /* L,V */
         int li = a - LBASE;
         int vi = b - VBASE;
         *code = SBASE + li * NCOUNT + vi * TCOUNT;
         return 2;
+    } else {
+        return 0;
     }
 }
 
@@ -178,7 +173,7 @@ static uint32_t decode_utf16(const unsigned short **code_ptr)
 {
     const unsigned short *code = *code_ptr;
 
-    if ((code[0] & 0xd800) != 0xd800) {
+    if (code[0] < 0xd800 || code[0] > 0xdc00) {
         *code_ptr += 1;
         return (uint32_t)code[0];
     } else {
@@ -268,8 +263,8 @@ uint32_t ucdn_mirror(uint32_t code)
         return code;
 
     mp.from = code;
-    res = bsearch(&mp, mirror_pairs, BIDI_MIRROR_LEN, sizeof(MirrorPair),
-            compare_mp);
+    res = (MirrorPair *) bsearch(&mp, mirror_pairs, BIDI_MIRROR_LEN,
+                                sizeof(MirrorPair), compare_mp);
 
     if (res == NULL)
         return code;
