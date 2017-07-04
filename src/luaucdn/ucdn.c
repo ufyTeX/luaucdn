@@ -23,7 +23,6 @@ typedef struct {
     unsigned char category;
     unsigned char combining;
     unsigned char bidi_class;
-    unsigned char mirrored;
     unsigned char east_asian_width;
     unsigned char script;
     unsigned char linebreak_class;
@@ -91,20 +90,30 @@ static const unsigned short *get_decomp_record(uint32_t code)
     return &decomp_data[index];
 }
 
-static int get_comp_index(uint32_t code, const Reindex *idx)
+static int compare_reindex(const void *a, const void *b)
 {
-    int i;
+    Reindex *ra = (Reindex *)a;
+    Reindex *rb = (Reindex *)b;
 
-    for (i = 0; idx[i].start; i++) {
-        const Reindex *cur = &idx[i];
-        if (code < cur->start)
-            return -1;
-        if (code <= cur->start + cur->count) {
-            return cur->index + (code - cur->start);
-        }
-    }
+    if (ra->start < rb->start)
+        return -1;
+    else if (ra->start > (rb->start + rb->count))
+        return 1;
+    else
+        return 0;
+}
 
-    return -1;
+static int get_comp_index(uint32_t code, const Reindex *idx, size_t len)
+{
+    Reindex *res;
+    Reindex r = {0, 0, 0};
+    r.start = code;
+    res = (Reindex *) bsearch(&r, idx, len, sizeof(Reindex), compare_reindex);
+
+    if (res != NULL)
+        return res->index + (code - res->start);
+    else
+        return -1;
 }
 
 static int compare_mp(const void *a, const void *b)
@@ -210,7 +219,7 @@ int ucdn_get_bidi_class(uint32_t code)
 
 int ucdn_get_mirrored(uint32_t code)
 {
-    return get_ucd_record(code)->mirrored;
+    return ucdn_mirror(code) != code;
 }
 
 int ucdn_get_script(uint32_t code)
@@ -259,9 +268,6 @@ uint32_t ucdn_mirror(uint32_t code)
     MirrorPair mp = {0};
     MirrorPair *res;
 
-    if (get_ucd_record(code)->mirrored == 0)
-        return code;
-
     mp.from = code;
     res = (MirrorPair *) bsearch(&mp, mirror_pairs, BIDI_MIRROR_LEN,
                                 sizeof(MirrorPair), compare_mp);
@@ -305,11 +311,9 @@ int ucdn_decompose(uint32_t code, uint32_t *a, uint32_t *b)
         return 0;
 
     rec++;
+    /* standard decompositions are always pairwise */
     *a = decode_utf16(&rec);
-    if (len > 1)
-        *b = decode_utf16(&rec);
-    else
-        *b = 0;
+    *b = decode_utf16(&rec);
 
     return 1;
 }
@@ -321,8 +325,8 @@ int ucdn_compose(uint32_t *code, uint32_t a, uint32_t b)
     if (hangul_pair_compose(code, a, b))
         return 1;
 
-    l = get_comp_index(a, nfc_first);
-    r = get_comp_index(b, nfc_last);
+    l = get_comp_index(a, nfc_first, sizeof(nfc_first) / sizeof(Reindex));
+    r = get_comp_index(b, nfc_last, sizeof(nfc_last) / sizeof(Reindex));
 
     if (l < 0 || r < 0)
         return 0;

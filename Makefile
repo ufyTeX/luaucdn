@@ -8,6 +8,6 @@ lint:
 	luacheck src spec
 
 doc:
-	ldoc -d ${DOCS_DIR}  .
+	ldoc -d docs  .
 
 .PHONY: clean lint spec doc
