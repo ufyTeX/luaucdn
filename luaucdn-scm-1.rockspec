@@ -1,11 +1,11 @@
 package = "luaucdn"
 version = "scm-1"
 source = {
-   url = "git+https://github.com/deepakjois/luaucdn",
+   url = "git+https://github.com/ufytex/luaucdn",
 }
 description = {
    summary = "Lua bindings for ucdn",
-   homepage = "https://github.com/deepakjois/luaucdn",
+   homepage = "https://github.com/ufytex/luaucdn",
    license = "MIT",
    maintainer = "Deepak Jois <deepak.jois@gmail.com>"
 }
